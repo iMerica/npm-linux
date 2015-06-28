@@ -17,7 +17,10 @@ You can use this in any directory that has a `package.json` file in it. Just run
 
 If you have npm modules in private git repos, you can also do:
 
-`docker run -it -v "$PWD:/src" -v "$HOME/.ssh/id_rsa:/root/.ssh/id_rsa" imichael/linux-npm`
+`docker run -it \
+  -v "$PWD:/src" \
+  -v "$HOME/.ssh/id_rsa:/root/.ssh/id_rsa" \
+  imichael/linux-npm`
 
 The above command mounts your ssh key into the container while it's being ran so that npm can use it. Both commands will grab all 
 modules and build in Linux then save to your host operating system as `node_modules` in the current directory.
