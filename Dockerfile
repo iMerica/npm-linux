@@ -2,11 +2,9 @@ FROM node:latest
 
 MAINTAINER michaelmartinez@me.com
 
-WORKDIR /src
+RUN mkdir /usr/local/bin/lnmp.sh && \
+    echo -e '#!/bin/bash\nnpm install' > /usr/local/bin/lnmp.sh && \
+    chmod +x  /usr/local/bin/lnmp.sh
 
-ADD bin/npm.sh /src/bin/npm.sh
-
-RUN ["chmod", "+x", "/src/bin/npm.sh"] 
-
-ENTRYPOINT ["/src/bin/npm.sh"]
+ENTRYPOINT ["/usr/local/bin/lnmp.sh"]
 
