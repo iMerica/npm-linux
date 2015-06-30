@@ -11,5 +11,5 @@ RUN  echo "    IdentityFile /root/.ssh/id_rsa" >> /etc/ssh/ssh_config && \
      ssh-keyscan -H $ip >> ~/.ssh/known_hosts 2>/dev/null && \
      ssh-keyscan -H github.com >> ~/.ssh/known_hosts 2>/dev/null
 
-ENTRYPOINT ["npm", "install"]
+ENTRYPOINT ["npm", "install", "--loglevel", "verbose"]
 
